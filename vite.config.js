@@ -8,4 +8,13 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  server: {
+    proxy: {
+      '/tmdb-api': {
+        target: 'https://api.themoviedb.org/3',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/tmdb-api/, '')
+      }
+    }
+  }
 })

@@ -1,33 +1,14 @@
 import axios from 'axios';
 
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
+// Using our own Vercel/Vite proxy to bypass ISP blocks
+const TMDB_BASE_URL = '/tmdb-api';
 
 export const tmdbApi = axios.create({
   baseURL: TMDB_BASE_URL,
-});
-
-// Intercept requests to route them through allorigins proxy to bypass ISP blocks
-tmdbApi.interceptors.request.use((config) => {
-  // Construct the original TMDB URL
-  const originalUrl = new URL(config.baseURL + config.url);
-  
-  // Append api_key and any other params
-  originalUrl.searchParams.append('api_key', TMDB_API_KEY);
-  if (config.params) {
-    Object.keys(config.params).forEach(key => {
-      originalUrl.searchParams.append(key, config.params[key]);
-    });
-  }
-
-  // Set the new proxy URL
-  config.baseURL = '';
-  config.url = `https://api.allorigins.win/raw?url=${encodeURIComponent(originalUrl.toString())}`;
-  
-  // Clear the params so axios doesn't append them again unencoded
-  config.params = {};
-
-  return config;
+  params: {
+    api_key: TMDB_API_KEY,
+  },
 });
 
 export const getPopularMovies = async (page = 1) => {

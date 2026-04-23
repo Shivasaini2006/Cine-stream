@@ -13,8 +13,10 @@
     color-scheme: dark;
   }
   body {
-    @apply bg-background text-white antialiased selection:bg-accent selection:text-white;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply text-white antialiased selection:bg-accent selection:text-white;
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top right, #111111 0%, #000000 100%);
+    background-attachment: fixed;
   }
 }
 

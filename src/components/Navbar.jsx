@@ -50,7 +50,7 @@ const Navbar = ({ onSearch }) => {
             <img 
               src={logoSrc} 
               alt="Cine Stream Logo" 
-              className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform" 
+              className="h-14 sm:h-16 w-auto object-contain mix-blend-screen drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300" 
             />
           </Link>
 

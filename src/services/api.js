@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
+// Using corsproxy.io prefix to bypass ISP blocks in India (e.g. Jio)
+const TMDB_BASE_URL = 'https://corsproxy.io/?https://api.themoviedb.org/3';
 
 export const tmdbApi = axios.create({
   baseURL: TMDB_BASE_URL,

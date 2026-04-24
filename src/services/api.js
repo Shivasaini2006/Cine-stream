@@ -34,7 +34,7 @@ export const getGeminiMoodMatch = async (moodQuery) => {
 
   try {
     const response = await axios.post(
-      `/gemini-api/generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
         contents: [
           {
@@ -58,6 +58,9 @@ export const getGeminiMoodMatch = async (moodQuery) => {
     return suggestedTitle;
   } catch (error) {
     console.error('Error fetching from Gemini API:', error);
+    if (error.response && error.response.data) {
+      console.error('Gemini API Error Details:', error.response.data);
+    }
     throw error;
   }
 };

@@ -34,7 +34,7 @@ export const getGeminiMoodMatch = async (moodQuery) => {
 
   try {
     const response = await axios.post(
-      `/gemini-api/v1beta/models/gemini-1.5-flash:generateContent`,
+      `/gemini-api/generate?key=${GEMINI_API_KEY}`,
       {
         contents: [
           {
@@ -48,8 +48,7 @@ export const getGeminiMoodMatch = async (moodQuery) => {
       },
       {
         headers: {
-          'Content-Type': 'application/json',
-          'X-goog-api-key': GEMINI_API_KEY
+          'Content-Type': 'application/json'
         }
       }
     );

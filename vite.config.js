@@ -15,10 +15,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/tmdb-api/, '')
       },
-      '/gemini-api': {
+      '/gemini-api/generate': {
         target: 'https://generativelanguage.googleapis.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/gemini-api/, '')
+        rewrite: () => '/v1beta/models/gemini-1.5-flash:generateContent'
       }
     }
   }

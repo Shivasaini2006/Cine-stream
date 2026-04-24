@@ -5,8 +5,8 @@
       "destination": "https://api.themoviedb.org/3/:path*"
     },
     {
-      "source": "/gemini-api/:path*",
-      "destination": "https://generativelanguage.googleapis.com/:path*"
+      "source": "/gemini-api/generate",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
     },
     {
       "source": "/(.*)",

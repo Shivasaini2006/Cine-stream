@@ -15,7 +15,7 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/tmdb-api/, '')
       },
-      '/gemini-api/generate': {
+      '/gemini-api/generateContent': {
         target: 'https://generativelanguage.googleapis.com',
         changeOrigin: true,
         rewrite: () => '/v1beta/models/gemini-1.5-flash:generateContent'

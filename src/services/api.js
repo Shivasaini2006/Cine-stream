@@ -34,7 +34,7 @@ export const getGeminiMoodMatch = async (moodQuery) => {
 
   try {
     const response = await axios.post(
-      `/gemini-api/generate?key=${GEMINI_API_KEY}`,
+      `/gemini-api/generateContent?key=${GEMINI_API_KEY}`,
       {
         contents: [
           {

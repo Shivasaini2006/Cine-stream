@@ -5,6 +5,10 @@
       "destination": "https://api.themoviedb.org/3/:path*"
     },
     {
+      "source": "/gemini-api/:path*",
+      "destination": "https://generativelanguage.googleapis.com/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

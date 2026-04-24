@@ -14,6 +14,11 @@ export default defineConfig({
         target: 'https://api.themoviedb.org/3',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/tmdb-api/, '')
+      },
+      '/gemini-api': {
+        target: 'https://generativelanguage.googleapis.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/gemini-api/, '')
       }
     }
   }
